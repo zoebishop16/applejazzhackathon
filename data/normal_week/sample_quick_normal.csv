@@ -1,0 +1,21 @@
+timestamp,station_id,station_name,district,total_docks,broken_docks,effective_capacity,bikes_available,broken_bike_count,percent_full,is_online,out_of_service,latitude,longitude
+2026-01-05T08:05:00Z,1,Station 1,District A,13,0,13,10,0,0.7692,True,False,40.7178,-74.0020
+2026-01-05T08:05:00Z,2,Station 2,District B,14,0,14,4,0,0.2857,True,False,40.7228,-73.9980
+2026-01-05T08:05:00Z,3,Station 3,District C,15,1,14,3,0,0.2143,True,False,40.7278,-73.9940
+2026-01-05T08:05:00Z,4,Station 4,District D,16,0,16,12,0,0.7500,True,False,40.7328,-74.0060
+2026-01-05T08:05:00Z,5,Station 5,District A,17,0,17,13,0,0.7647,True,False,40.7128,-74.0020
+2026-01-05T08:05:00Z,6,Station 6,District B,18,0,18,4,0,0.2222,True,False,40.7178,-73.9980
+2026-01-05T08:05:00Z,7,Station 7,District C,19,0,19,5,0,0.2632,True,False,40.7228,-73.9900
+2026-01-05T08:05:00Z,8,Station 8,District D,20,0,20,15,0,0.7500,True,False,40.7278,-74.0060
+2026-01-05T08:05:00Z,9,Station 9,District A,12,0,12,9,0,0.7500,True,False,40.7328,-74.0020
+2026-01-05T08:05:00Z,10,Station 10,District B,13,0,13,3,0,0.2308,True,False,40.7128,-73.9980
+2026-01-05T08:05:00Z,11,Station 11,District C,14,0,14,4,0,0.2857,True,False,40.7178,-73.9900
+2026-01-05T08:05:00Z,12,Station 12,District D,15,0,15,11,0,0.7333,True,False,40.7228,-74.0060
+2026-01-05T08:05:00Z,13,Station 13,District A,16,0,16,12,0,0.7500,True,False,40.7278,-74.0020
+2026-01-05T08:05:00Z,14,Station 14,District B,17,1,16,4,0,0.2500,True,False,40.7328,-73.9980
+2026-01-05T08:05:00Z,15,Station 15,District C,18,0,18,4,0,0.2222,True,False,40.7128,-73.9900
+2026-01-05T08:05:00Z,16,Station 16,District D,19,0,19,14,0,0.7368,True,False,40.7178,-74.0060
+2026-01-05T08:05:00Z,17,Station 17,District A,20,0,20,15,0,0.7500,True,False,40.7228,-74.0020
+2026-01-05T08:05:00Z,18,Station 18,District B,12,0,12,3,0,0.2500,True,False,40.7278,-73.9980
+2026-01-05T08:05:00Z,19,Station 19,District C,13,0,13,3,0,0.2308,True,False,40.7328,-73.9900
+2026-01-05T08:05:00Z,20,Station 20,District D,14,0,14,11,0,0.7857,True,False,40.7128,-74.0060
