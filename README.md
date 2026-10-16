@@ -1,151 +1,29 @@
-![](docs/images/banner_thin.png)
+# Bikeshare Ops Dashboard
 
-# 🎯 Cornell Six Sigma Hackathon
+This repository contains a static prototype of the Bikeshare Operations Dashboard plus a data generator for synthetic datasets used in testing and analysis.
 
-*Tackle real-world quality control problems drawn from industrial engineering,
-healthcare systems, and energy systems!*
+What I added
+- index.html + assets (map, sidebar, pages skeleton)
+- scripts/generate_data.py — generator that can produce 3-week datasets at 5-minute sampling and supports "normal" and "high_failure" scenarios
+- data/README.md explaining the dataset columns and how to generate full datasets locally
 
----
+How to get full datasets
+1. Install dependencies: pip install pandas numpy
+2. Run the generator, for example:
+   python3 scripts/generate_data.py --out data/normal_week/dataset_normal_3weeks.csv --weeks 3 --freq-minutes 5 --scenario normal --seed 42
 
-Your team picks a prompt, creates the data, and ships a working quality-control
-tool. **👉 [Register on Devpost](https://six-sigma-hackathon.devpost.com/)**
-(required, even if you don't have a team yet).
+Previewing the site locally
+- Open index.html in a browser (the map uses Leaflet and will load sample CSV files if present under data/). For full preview, run a local static file server from the repo root:
+  python3 -m http.server 8000
+  then visit http://localhost:8000
 
-### 📍 When & where
+GitHub Pages
+If you want to host this site on GitHub Pages, enable Pages for this repository (Settings → Pages) and select the main branch and / (root) as the publishing source. The default Pages URL will be:
 
-| | 🏫 On-campus (24 hours) | 🌐 Virtual DL Challenge (7 days) |
-|---|---|---|
-| **Who** | on-campus students (required unless excused) | distance-learning students, and anyone who can't attend in person |
-| **Runs** | Fri Oct 16, 3 PM → Sat Oct 17, 3 PM ET | Fri Oct 16, 3 PM → Fri Oct 23, 3 PM ET |
-| **Where** | Upson Hall 116 | online |
-| **Submissions due** | Sat Oct 17, **1 PM ET** sharp | Fri Oct 23, **3 PM ET** |
-| **Showcase** | Sat Oct 17, 2-3 PM (must attend) | — |
+https://zoebishop16.github.io/applejazzhackathon/
 
-Submit on **[Devpost](https://six-sigma-hackathon.devpost.com/)**: your repo
-link plus a demo. Full run of show: [🗓️ Schedule](docs/schedule.md).
+(Enable Pages in repo settings to publish.)
 
----
-
-### Quick Links
-
-- [🗓️ Schedule of Events](docs/schedule.md)
-- [💬 Prompts](docs/prompts.md) — *revealed at the start of the event*
-- [🔢 Evaluation Criteria](docs/criteria.md)
-- [📚 Resources for Building Your Tool](docs/resources.md)
-- [🧰 Starter Templates](demos/README.md)
-- [🤖 Agent Start Tutorial](docs/start.md) — type `/superagent` and your agent reads it for you
-- [⁉️ FAQ](#️-frequently-asked-questions)
-
----
-
-> ### 📘🤖 New here? Read the [step-by-step start tutorial](docs/start.md) first
-> Ten minutes, for the whole team: set up your agent, **plan with `/superagent` on your
-> strongest model**, then **switch to a cheaper model** that builds and checks each task with
-> helper agents. **[→ docs/start.md](docs/start.md)**
-
-
-### 💡 The Challenge
-
-Your team tackles one real-world quality control and reliability problem.
-
-- 🧩 Prompts are released **at kickoff** — each tied to a dataset you design and
-  build yourself
-- 📊 **The statistics are the graded core.** Statistical process control,
-  process capability, reliability modeling, failure analysis. The app is the
-  delivery vehicle for the analysis, not the point
-- 🧱 Ship a a dashboard / web app (React or Shiny), plus **one** of: an R package or Python library AND/OR a public REST API
-  (FastAPI or plumber).
-- 🚀 Deploy it live to the course **Posit Connect** server
-- 🔢 Every project is scored 0-100 by the event staff.
-  [Read the criteria](docs/criteria.md)
-
----
-
-### 🤖 Build with AI — bring your own agent
-
-AI-assisted development is **expected and encouraged**. Use whatever you already
-have. The skill being tested is steering a capable assistant toward
-statistically correct work — which is exactly the skill this course is about.
-
-- [🧠 AI coding agents](docs/agents.md) — the popular ones, and how to pick
-- [🎙️ Tools](docs/tools.md) — Wispr Flow (talk to your agent) and Open Design
-- [`CLAUDE.md`](CLAUDE.md) / [`AGENTS.md`](AGENTS.md) — what the event is, the
-  repo map, the deploy target, the four-script contract
-- [`.claude/skills/superagent/`](.claude/skills/superagent/SKILL.md) — the one
-  skill you need: type `/superagent` and it routes to every other skill and
-  template for you. They all live in [`.claude/skills/`](.claude/skills/) if you
-  want to read them
-
-Two rules: everything you ship is **public and reproducible**, and you must be
-able to **explain every number your tool prints**.
-
----
-
-### ⁉️ Frequently Asked Questions
-
-- **Who can participate?** Cornell students who are (a) in the Systems
-  Engineering MEng/MS program, OR (b) enrolled in SYSEN 5300 / MAE 5390, OR
-  (c) enrolled in SYSEN 5900. Teams of **2 to 5**.
-
-- **On-campus or virtual?** On-campus students do the 24-hour event in Upson
-  Hall 116 (required unless excused). Distance-learning students, and anyone
-  who can't attend in person, do the 7-day Virtual DL Challenge.
-  [Dates above](#-when--where).
-
-- **What are the deadlines?** On-campus: submissions due Sat Oct 17, 1 PM ET
-  sharp; showcase Sat Oct 17, 2-3 PM (must attend). DL: submissions due
-  Fri Oct 23, 3 PM ET.
-
-- **What do we win?** On-campus winners: dinner for the team at the Statler
-  Dining Room. DL winners: bragging rights — infamy for all time.
-
-- **Do I need Six Sigma experience?** No. Trainings are provided during the
-  event, and many of the analyses can be learned in a few minutes. The
-  [course textbook](https://timothyfraser.com/sigma/) is open to everyone.
-
-- **Do I have to be a coding wizard?** No. Some prior experience in R or Python
-  is enough, and AI assistants close a lot of the gap. A winning project is a
-  smart, correct solution to a quality-control problem — not fancy code.
-
-- **What if I can't find team members?** Register on
-  [Devpost](https://six-sigma-hackathon.devpost.com/) anyway; we will match
-  you with a team.
-
-- **Do I have to be there the whole 24 hours?** A successful team works most of
-  it. Step out, sleep, stagger breaks — just keep someone on the team present.
-
-- **Can a teammate join the on-campus event remotely?** No. Anyone who can't
-  attend in person does the Virtual DL Challenge instead.
-
-- **What do we submit?** On Devpost: a link to your public GitHub repository
-  and a demo of a working prototype, deployed live to Posit Connect. At least
-  one team member needs a working (non-Cornell) GitHub account.
-
-- **What software do I need?** Install R or Python and at least one coding
-  interface (RStudio, VSCode, Cursor, Positron, ...) **before** the event
-  starts. If you plan to use an AI assistant, set it up beforehand too.
-
-- **What language should I use?** R, Python, or both. Code must be fully
-  reproducible and public.
-
-- **How are products evaluated?** Scored 0-100 by event staff on
-  [the criteria](docs/criteria.md): tool implementation (50), tool design
-  (25), documentation (25).
-
----
-
-### 👥 How to Join
-
-[Register on Devpost](https://six-sigma-hackathon.devpost.com/) — registration
-is required. Form a team of 2 to 5, or register solo and we'll match you.
-
----
-
-### 📚 Sign Up to Mentor
-
-Faculty, postdocs, PhD students, and developers are welcome as mentors.
-[Details here](docs/mentors.md).
-
----
-
-![](docs/images/banner_icons.png)
+Next steps
+- Run the generator to create the required 3-week datasets and commit them to data/ (or keep them locally if the files are large).
+- Implement the remaining interactive pages (heatmap, stockout log, dock grid, forecast ranking), rebalancing engine and maintenance workflow endpoints. The static skeleton and generator are in place to start building these features.

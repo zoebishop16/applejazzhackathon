@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bikeshare Ops Dashboard</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar" class="collapsed">
+      <div class="brand">Bikeshare Ops</div>
+      <nav>
+        <ul>
+          <li data-page="map" class="active">Live Map</li>
+          <li data-page="stockouts">Stockouts & Heatmap</li>
+          <li data-page="health">Dock Health</li>
+          <li data-page="forecast">Forecast & At-Risk</li>
+          <li data-page="dispatch">Dispatch</li>
+          <li data-page="maintenance">Maintenance</li>
+          <li data-page="analysis">Data Analysis</li>
+        </ul>
+      </nav>
+      <button id="toggle-sidebar">☰</button>
+    </aside>
+
+    <div id="main">
+      <header id="topbar">
+        <div id="page-title">Live Map</div>
+        <div id="freshness">Last updated: <span id="last-updated">—</span></div>
+      </header>
+
+      <main>
+        <section id="page-map" class="page active">
+          <div id="map-controls" class="controls">
+            <div class="control-group">
+              <label>District</label>
+              <select id="filter-district"><option value="all">All</option></select>
+            </div>
+            <div class="control-group">
+              <label>Show</label>
+              <select id="filter-status"><option value="all">All</option><option value="problem">Problem stations only</option></select>
+            </div>
+            <div class="control-group">
+              <label>Dataset</label>
+              <select id="dataset-select"><option value="">(no dataset found)</option></select>
+            </div>
+            <button id="refresh-data">Refresh</button>
+          </div>
+
+          <div id="map" aria-label="Live stations map"></div>
+        </section>
+
+        <!-- Placeholder pages -->
+        <section id="page-stockouts" class="page">
+          <h2>Stockouts & Heatmap</h2>
+          <div class="placeholder">Heatmap and stockout log will appear here.</div>
+        </section>
+        <section id="page-health" class="page">
+          <h2>Dock Health</h2>
+          <div class="placeholder">Dock health table and per-dock grid will appear here.</div>
+        </section>
+        <section id="page-forecast" class="page">
+          <h2>Forecast & At-Risk</h2>
+          <div class="placeholder">At-risk station ranking and simple forecasts.</div>
+        </section>
+        <section id="page-dispatch" class="page">
+          <h2>Dispatch</h2>
+          <div class="placeholder">Recommended moves, task queue, and van status.</div>
+        </section>
+        <section id="page-maintenance" class="page">
+          <h2>Maintenance</h2>
+          <div class="placeholder">Ticket table and MTR metrics.</div>
+        </section>
+        <section id="page-analysis" class="page">
+          <h2>Data Analysis</h2>
+          <div class="placeholder">FMEA, Control charts, Reliability.</div>
+        </section>
+
+      </main>
+
+      <footer>
+        <div class="legend">
+          <span class="legend-item"><span class="marker empty"></span>Empty (0%)</span>
+          <span class="legend-item"><span class="marker low"></span>Low (1–29%)</span>
+          <span class="legend-item"><span class="marker med"></span>Medium (30–69%)</span>
+          <span class="legend-item"><span class="marker high"></span>High (70–99%)</span>
+          <span class="legend-item"><span class="marker full"></span>Full (100%)</span>
+          <span class="legend-item"><span class="marker out"></span>Out of service</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
