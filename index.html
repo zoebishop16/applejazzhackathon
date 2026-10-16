@@ -6,6 +6,7 @@
   <title>Bikeshare Ops Dashboard</title>
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>/* quick fallback for markercluster if not present */</style>
 </head>
 <body>
   <div id="app">
@@ -39,22 +40,38 @@
               <select id="filter-district"><option value="all">All</option></select>
             </div>
             <div class="control-group">
-              <label>Show</label>
-              <select id="filter-status"><option value="all">All</option><option value="problem">Problem stations only</option></select>
+              <label>Status</label>
+              <select id="filter-status"><option value="all">All</option><option value="problem">Problem stations only</option><option value="out">Out of service</option></select>
+            </div>
+            <div class="control-group">
+              <label>Last update (mins)</label>
+              <select id="filter-age"><option value="9999">Any</option><option value="10">&lt;10</option><option value="30">&lt;30</option><option value="60">&lt;60</option></select>
+            </div>
+            <div class="control-group">
+              <label><input type="checkbox" id="filter-open-only"> Open docking stations only</label>
+            </div>
+            <div class="control-group">
+              <label><input type="checkbox" id="filter-problem-only"> Problem stations only</label>
             </div>
             <div class="control-group">
               <label>Dataset</label>
               <select id="dataset-select"><option value="">(no dataset found)</option></select>
             </div>
-            <button id="refresh-data">Refresh</button>
+            <div style="display:flex;gap:8px;margin-top:8px;"><button id="refresh-data">Refresh</button><button id="clear-tickets">Clear tickets</button></div>
           </div>
 
           <div id="map" aria-label="Live stations map"></div>
+
+          <aside id="station-panel" aria-hidden="true" class="station-panel">
+            <button id="close-station-panel" class="close">✕</button>
+            <div id="station-details"></div>
+          </aside>
         </section>
 
         <!-- Placeholder pages -->
         <section id="page-stockouts" class="page">
           <h2>Stockouts & Heatmap</h2>
+          <div id="stockouts-controls" style="margin-bottom:8px"><button id="export-stockouts">Export CSV</button></div>
           <div class="placeholder">Heatmap and stockout log will appear here.</div>
         </section>
         <section id="page-health" class="page">
